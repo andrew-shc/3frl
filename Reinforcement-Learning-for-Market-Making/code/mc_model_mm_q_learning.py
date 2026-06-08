@@ -367,11 +367,11 @@ def load_Q(filename, default=True, folder_mode=False, folder_name=None):
     if not default:
         return Q_raw
 
-    # Find d
-    dim = Q_raw[(0, 1)].shape[0]
+    # Infer full shape from the stored values so the default matches
+    q_shape = next(iter(Q_raw.values())).shape
 
     # Transform to a default_dict
-    Q_loaded = defaultdict(lambda: np.zeros((dim, dim)))
+    Q_loaded = defaultdict(lambda: np.zeros(q_shape))
     Q_loaded.update(Q_raw)
 
     return Q_loaded, args, n, rewards_average, Q_zero_average, x_values

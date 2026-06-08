@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated results (Q-tables, DDQN weights, plots, logs)
+Reinforcement-Learning-for-Market-Making/code/results/
